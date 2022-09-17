@@ -60,7 +60,8 @@ INSTALLED_APPS = [
     #app
     'profiles',
     'recipes',
-    'comments'
+    'comments',
+    'likes'
 ]
 
 MIDDLEWARE = [
