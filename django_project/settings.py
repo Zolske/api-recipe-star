@@ -18,15 +18,15 @@ import dj_database_url
 if os.path.exists('env.py'):
     import env
 
-# UNCOMMENT AFTER TEST CLOUDINARY_STORAGE = {
-#     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
-# }
+CLOUDINARY_STORAGE = {
+    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+}
 
 # let Django know where to find media files, like images
 MEDIA_URL = '/media/'
 
 # set the default file storage to Cloudinary
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# TURN BACK ON AFTER TEST DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
