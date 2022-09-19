@@ -26,7 +26,7 @@ CLOUDINARY_STORAGE = {
 MEDIA_URL = '/media/'
 
 # set the default file storage to Cloudinary
-# TURN BACK ON AFTER TEST DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
