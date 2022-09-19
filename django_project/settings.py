@@ -126,8 +126,8 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        # 'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -210,12 +210,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # tells django where to find the static files
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-
-# for heroku admin panel to pick up css
-# DELETE STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
