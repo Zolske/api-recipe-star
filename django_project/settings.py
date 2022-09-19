@@ -18,9 +18,9 @@ import dj_database_url
 if os.path.exists('env.py'):
     import env
 
-CLOUDINARY_STORAGE = {
-    'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
-}
+# UNCOMMENT AFTER TEST CLOUDINARY_STORAGE = {
+#     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
+# }
 
 # let Django know where to find media files, like images
 MEDIA_URL = '/media/'
@@ -69,8 +69,8 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEV' in os.environ
-DEBUG = True
+DEBUG = 'DEV' in os.environ
+# DEBUG = True
 
 
 # original 'recipe-star-api.herokuapp.com',
