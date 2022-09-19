@@ -69,7 +69,8 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
+# DEBUG = 'DEV' in os.environ
+DEBUG = True
 
 
 # original 'recipe-star-api.herokuapp.com',
@@ -97,8 +98,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'corsheaders',
-    
-    #app
+
+    # app
     'profiles',
     'recipes',
     'comments',
@@ -126,8 +127,8 @@ ROOT_URLCONF = 'django_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # 'DIRS': [],
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
+        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -151,7 +152,7 @@ DATABASES = {
         # development
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
-      # production
+        # production
     } if 'DEV' in os.environ else dj_database_url.parse(
         os.environ.get('DATABASE_URL')
     ))
@@ -210,9 +211,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # tells django where to find the static files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
