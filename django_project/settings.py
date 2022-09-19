@@ -74,8 +74,12 @@ DEBUG = 'DEV' in os.environ
 
 
 # original 'recipe-star-api.herokuapp.com',
-ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']
+# ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']
 
+ALLOWED_HOSTS = [
+    'recipe-star-api.herokuapp.com',
+    'localhost',
+]
 
 # Application definition
 
