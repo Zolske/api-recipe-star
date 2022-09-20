@@ -74,12 +74,13 @@ DEBUG = 'DEV' in os.environ
 
 
 # original 'recipe-star-api.herokuapp.com',
-# ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']
 
-ALLOWED_HOSTS = [
-    'recipe-star-api.herokuapp.com',
-    'localhost',
-]
+# from original source
+# ALLOWED_HOSTS = [
+#     'recipe-star-api.herokuapp.com',
+#     'localhost',
+# ]
 
 # Application definition
 
@@ -162,15 +163,22 @@ DATABASES = {
     ))
 }
 
-# Set the ALLOWED_ORIGINS for the network requests
+# ORIGINAL Set the ALLOWED_ORIGINS for the network requests
 # made to the server
-if 'CLIENT_ORIGIN' in os.environ:
-    CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
-    ]
-else:
+# if 'CLIENT_ORIGIN' in os.environ:
+#     CORS_ALLOWED_ORIGINS = [
+#         os.environ.get('CLIENT_ORIGIN')
+#     ]
+# else:
+#     CORS_ALLOWED_ORIGIN_REGEXES = [
+#         r"^https://.*\.gitpod\.io$",
+#     ]
+
+# UPDATED version
+if 'CLIENT_ORIGIN_DEV' in os.environ:
+    extracted_url = re.match(r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
     CORS_ALLOWED_ORIGIN_REGEXES = [
-        r"^https://.*\.gitpod\.io$",
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
     ]
 
 # Allow Cookies
