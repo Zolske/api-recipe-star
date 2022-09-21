@@ -235,18 +235,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
                                                                                      #
 #### use for deployed app ############################################################               
 # from original source // "recipe-star" app                                          #
-ALLOWED_HOSTS = [                                                                    #
-    'recipe-star-api.herokuapp.com',                                                 #
-    'localhost',                                                                     #
-]                                                                                    #                                                                                    
+#ALLOWED_HOSTS = [                                                                    #
+#    'recipe-star-api.herokuapp.com',                                                 #
+#    'localhost',                                                                     #
+#]                                                                                    #                                                                                    
                                                                                      #
 # use for deployed version                                                           #
 #DEBUG = 'DEV' in os.environ                                                          #
                                                                                      #
 ####  use for local app ##############################################################
 # UPDATE 'recipe-star-api.herokuapp.com',                                            #
-#ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']                       #
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']                       #
                                                                                      #
 # don't run with debug turned on in production, but use to access amin panel with css#
-DEBUG = True                                                                       #
+DEBUG = True                                                                        #
 ######################################################################################
