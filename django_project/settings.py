@@ -69,6 +69,15 @@ REST_AUTH_SERIALIZERS = {
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
+# from original source // "recipe-star" app
+#ALLOWED_HOSTS = [
+#    'recipe-star-api.herokuapp.com',
+#    'localhost',
+#]
+                                                                                   
+# UPDATE 'recipe-star-api.herokuapp.com'
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -150,24 +159,6 @@ DATABASES = {
     ))
 }
 
-# ORIGINAL Set the ALLOWED_ORIGINS for the network requests
-# made to the server
-#if 'CLIENT_ORIGIN' in os.environ:
-#    CORS_ALLOWED_ORIGINS = [
-#        os.environ.get('CLIENT_ORIGIN')
-#    ]
-#else:
-#    CORS_ALLOWED_ORIGIN_REGEXES = [
-#        r"^https://.*\.gitpod\.io$",
-#    ]
-
-# UPDATED version
-if 'CLIENT_ORIGIN_DEV' in os.environ:
-    extracted_url = re.match(
-        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)
-    CORS_ALLOWED_ORIGIN_REGEXES = [
-        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
-    ]
 
 # Allow Cookies
 CORS_ALLOW_CREDENTIALS = True
@@ -234,19 +225,27 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #### switch between the 2 for local and deployed version, rebuild on heroku ########## 
                                                                                      #
 #### use for deployed app ############################################################               
-# from original source // "recipe-star" app                                          #
-#ALLOWED_HOSTS = [                                                                    #
-#    'recipe-star-api.herokuapp.com',                                                 #
-#    'localhost',                                                                     #
-#]                                                                                    #                                                                                    
+# ORIGINAL Set the ALLOWED_ORIGINS for the network requests made to the server #######
+#if 'CLIENT_ORIGIN' in os.environ:                                                   #
+#    CORS_ALLOWED_ORIGINS = [                                                        #
+#        os.environ.get('CLIENT_ORIGIN')                                             #
+#    ]                                                                               #
+#else:                                                                               #
+#    CORS_ALLOWED_ORIGIN_REGEXES = [                                                 #
+#        r"^https://.*\.gitpod\.io$",                                                #
+#    ]                                                                               #
                                                                                      #
 # use for deployed version                                                           #
-#DEBUG = 'DEV' in os.environ                                                          #
+DEBUG = 'DEV' in os.environ                                                          #
                                                                                      #
 ####  use for local app ##############################################################
-# UPDATE 'recipe-star-api.herokuapp.com',                                            #
-ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']                       #
+if 'CLIENT_ORIGIN_DEV' in os.environ:                                                #
+    extracted_url = re.match(                                                        #
+        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)    #
+    CORS_ALLOWED_ORIGIN_REGEXES = [                                                  #
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",                                #
+    ]                                                                                #
                                                                                      #
 # don't run with debug turned on in production, but use to access amin panel with css#
-DEBUG = True                                                                        #
+#DEBUG = True                                                                        #
 ######################################################################################
