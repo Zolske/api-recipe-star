@@ -34,6 +34,7 @@ class Recipe(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
+    ingredients = models.TextField(blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
         upload_to='images/', default='../default_post_sdddly.jpg', blank=True
