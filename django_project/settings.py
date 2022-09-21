@@ -69,19 +69,8 @@ REST_AUTH_SERIALIZERS = {
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEV' in os.environ
-# DEBUG = True
 
 
-# from original source
-ALLOWED_HOSTS = [
-    'recipe-star-api.herokuapp.com',
-    'localhost',
-]
-
-# UPDATE 'recipe-star-api.herokuapp.com',
-# ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']
 
 # Application definition
 
@@ -243,3 +232,24 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # MEDIA_URL = '/media/'
 # DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+#### switch between the 2 for local and deployed version ############################# 
+                                                                                     #
+#### use for deployed app ############################################################               
+# from original source // "recipe-star" app                                          #
+#ALLOWED_HOSTS = [                                                                    #
+#    'recipe-star-api.herokuapp.com',                                                 #
+#    'localhost',                                                                     #
+#]                                                                                    #                                                                                    
+                                                                                     #
+# use for deployed version                                                           #
+DEBUG = 'DEV' in os.environ                                                          #
+                                                                                     #
+####  use for local app ##############################################################
+# UPDATE 'recipe-star-api.herokuapp.com',                                            #
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST'), 'localhost']                       #
+                                                                                     #
+# don't run with debug turned on in production, but use to access amin panel with css#
+# DEBUG = True                                                                       #
+######################################################################################
