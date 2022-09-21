@@ -238,7 +238,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # use for deployed version                                                           #
 DEBUG = 'DEV' in os.environ                                                          #
                                                                                      #
-####  use for local app ##############################################################
+####  use for local app (dev mod) ####################################################
+# May be config var (CLIENT_ORIGIN_DEV in 'recipe-star-api) needs to be updated with #
+# automatically changed gitpod server link address?                                  #
 if 'CLIENT_ORIGIN_DEV' in os.environ:                                                #
     extracted_url = re.match(                                                        #
         r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)    #
