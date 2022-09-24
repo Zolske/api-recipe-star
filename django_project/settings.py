@@ -226,14 +226,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
                                                                                      #
 #### use for deployed app ############################################################               
 # ORIGINAL Set the ALLOWED_ORIGINS for the network requests made to the server #######
-if 'CLIENT_ORIGIN' in os.environ:                                                   #
-   CORS_ALLOWED_ORIGINS = [                                                        #
-       os.environ.get('CLIENT_ORIGIN')                                             #
-   ]                                                                               #
-else:                                                                               #
-   CORS_ALLOWED_ORIGIN_REGEXES = [                                                 #
-       r"^https://.*\.gitpod\.io$",                                                #
-   ]                                                                               #
+# if 'CLIENT_ORIGIN' in os.environ:                                                   #
+#    CORS_ALLOWED_ORIGINS = [                                                        #
+#        os.environ.get('CLIENT_ORIGIN')                                             #
+#    ]                                                                               #
+# else:                                                                               #
+#    CORS_ALLOWED_ORIGIN_REGEXES = [                                                 #
+#        r"^https://.*\.gitpod\.io$",                                                #
+#    ]                                                                               #
                                                                                      #
 # use for deployed version                                                           #
 DEBUG = 'DEV' in os.environ                                                          #
@@ -241,12 +241,12 @@ DEBUG = 'DEV' in os.environ                                                     
 ####  use for local app (dev mod) ####################################################
 # May be config var (CLIENT_ORIGIN_DEV in 'recipe-star-api) needs to be updated with #
 # automatically changed gitpod server link address?                                  #
-# if 'CLIENT_ORIGIN_DEV' in os.environ:                                                #
-#     extracted_url = re.match(                                                        #
-#         r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)    #
-#     CORS_ALLOWED_ORIGIN_REGEXES = [                                                  #
-#         rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",                                #
-#     ]                                                                                #
+if 'CLIENT_ORIGIN_DEV' in os.environ:                                                #
+    extracted_url = re.match(                                                        #
+        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)    #
+    CORS_ALLOWED_ORIGIN_REGEXES = [                                                  #
+        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",                                #
+    ]                                                                                #
                                                                                      #
 # don't run with debug turned on in production, but use to access amin panel with css#
 #DEBUG = True                                                                        #
