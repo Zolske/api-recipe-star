@@ -201,53 +201,33 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# tells django where to find the static files
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+DEBUG = 'DEV' in os.environ
 
-# STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-# MEDIA_URL = '/media/'
-# DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-
-
-#### switch between the 2 for local and deployed version, rebuild on heroku ########## 
-                                                                                     #
+#### switch between local and deployed version, rebuild on heroku #################### 
+#                                                                                    #
 #### use for deployed app ############################################################               
 # ORIGINAL Set the ALLOWED_ORIGINS for the network requests made to the server #######
-# if 'CLIENT_ORIGIN' in os.environ:                                                   #
-#    CORS_ALLOWED_ORIGINS = [                                                        #
-#        os.environ.get('CLIENT_ORIGIN')                                             #
-#    ]                                                                               #
-# else:                                                                               #
-#    CORS_ALLOWED_ORIGIN_REGEXES = [                                                 #
-#        r"^https://.*\.gitpod\.io$",                                                #
-#    ]                                                                               #
-                                                                                     #
-# use for deployed version                                                           #
-DEBUG = 'DEV' in os.environ                                                          #
-                                                                                     #
+if 'CLIENT_ORIGIN' in os.environ:                                                    #
+   CORS_ALLOWED_ORIGINS = [                                                          #
+       os.environ.get('CLIENT_ORIGIN')                                               #
+   ]                                                                                 #
+else:                                                                                #
+   CORS_ALLOWED_ORIGIN_REGEXES = [                                                   #
+       r"^https://.*\.gitpod\.io$",                                                  #
+   ]                                                                                 #
 ####  use for local app (dev mod) ####################################################
 # May be config var (CLIENT_ORIGIN_DEV in 'recipe-star-api) needs to be updated with #
 # automatically changed gitpod server link address?                                  #
-if 'CLIENT_ORIGIN_DEV' in os.environ:                                                #
-    extracted_url = re.match(                                                        #
-        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)    #
-    CORS_ALLOWED_ORIGIN_REGEXES = [                                                  #
-        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",                                #
-    ]                                                                                #
-                                                                                     #
+#if 'CLIENT_ORIGIN_DEV' in os.environ:                                               #
+#    extracted_url = re.match(                                                       #
+#        r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE).group(0)   #
+#    CORS_ALLOWED_ORIGIN_REGEXES = [                                                 #
+#        rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",                               #
+#    ]                                                                               #
 # don't run with debug turned on in production, but use to access amin panel with css#
-#DEBUG = True                                                                        #
 ######################################################################################
