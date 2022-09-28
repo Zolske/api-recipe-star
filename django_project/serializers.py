@@ -1,3 +1,6 @@
+# The code is based on  "Adam Lapinski's" walk-through project "Moments"!
+# https://github.com/Code-Institute-Solutions/moments
+
 from dj_rest_auth.serializers import UserDetailsSerializer
 from rest_framework import serializers
 

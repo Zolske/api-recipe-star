@@ -1,3 +1,6 @@
+# The code is based on  "Adam Lapinski's" walk-through project "Moments"!
+# https://github.com/Code-Institute-Solutions/moments
+
 from rest_framework import generics, permissions
 from django_project.permissions import IsOwnerOrReadOnly
 from likes.models import Like

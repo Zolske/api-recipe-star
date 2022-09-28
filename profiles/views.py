@@ -1,3 +1,6 @@
+# The code is based on  "Adam Lapinski's" walk-through project "Moments"!
+# https://github.com/Code-Institute-Solutions/moments
+
 from django.db.models import Count
 from rest_framework import generics, filters
 from django_filters.rest_framework import DjangoFilterBackend

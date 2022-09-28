@@ -1,3 +1,6 @@
+# The code is based on  "Adam Lapinski's" walk-through project "Moments"!
+# https://github.com/Code-Institute-Solutions/moments
+
 from django.contrib.auth.models import User
 from .models import Recipe
 from rest_framework import status

@@ -1,3 +1,6 @@
+# The code is based on  "Adam Lapinski's" walk-through project "Moments"!
+# https://github.com/Code-Institute-Solutions/moments
+
 from django.db import IntegrityError
 from rest_framework import serializers
 from .models import Follower

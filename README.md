@@ -29,4 +29,8 @@ This is the backend application for the frontend application "Recipe Star".
 ***
 ## Disclaimer  
 The rest of the documentation is merged with the documentation of the frontend application "Recipe Star".  
-**link to the frontend GitHub repository ->** ["recipe-star"](https://github.com/Zolske/recipe-star/blob/main/README.md)
+**link to the frontend GitHub repository ->** ["recipe-star"](https://github.com/Zolske/recipe-star/blob/main/README.md)  
+   
+The code is based on  "Adam Lapinski's" walk-through project "Moments"!
+https://github.com/Code-Institute-Solutions/moments
+
