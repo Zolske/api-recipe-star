@@ -27,3 +27,6 @@ This is the backend application for the frontend application "Recipe Star".
   | endpoint       |    "/dj-rest-auth/logout/"    | "/dj-rest-auth/token/refresh/" | "/dj-rest-auth/password/change/" |
   | expected value |                               |         refresh token          |   new_password1 new_password2    |
 ***
+## Disclaimer  
+The rest of the documentation is merged with the documentation of the frontend application "Recipe Star".  
+**link to the frontend GitHub repository ->** ["recipe-star"](https://github.com/Zolske/recipe-star/blob/main/README.md)
