@@ -815,7 +815,7 @@ to see if the owner is logged in `"is_owner": true`
 
    ```
    release: python manage.py makemigrations && python manage.py migrate
-   web: gunicorn drf_api.wsgi
+   web: gunicorn django_project.wsgi
    ```
 
    ### in ... django_project/settings.py
